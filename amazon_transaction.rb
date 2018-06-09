@@ -54,14 +54,16 @@ loop do
   puts "If you're done type done, else type no"
   answer = gets.chomp.downcase
   
-  if answer == "done" #if it equals something else repeat the loop again
+  if answer == "done" #if answer equals something else repeat the loop again
     puts ""
     puts "Receipt"
+    
     thing = 0
     new_register.items.each do |item|
       puts "#{item}     $#{new_register.prices[thing]}"
       thing += 1
     end
+    
     puts "Total without discount: $#{new_register.total}"
     new_register.apply_discounts #prints out the total with the discount
     break
