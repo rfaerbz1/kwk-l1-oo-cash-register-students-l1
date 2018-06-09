@@ -6,30 +6,30 @@ class AmazonTransaction
     @discount = discount
   end
   
-  def total
-  @total 
+  def add_item (item, price, quantity = 1)
+    @total += (price * quantity)
+    for i in 1..quantity 
+      @items << item
+      @prices << price
+    end 
   end 
   
- def add_item (item, price, quantity = 1)
-   @total += (price * quantity)
-   for i in 1..quantity 
-   @items << item
-   @prices << price
-     end 
+  def apply_discounts 
+    if @discount > 0 
+      @total -= @discount 
+      puts "After the discount, the total comes to $#{@total}"
+    else 
+      puts "there is no discount to apply"
+    end
   end 
- 
- def apply_discounts 
-  if @discount > 0 
-   @total -= @discount 
-   puts "After the discount, the total comes to $#{@total}"
-  else 
-   puts "there is no discount to apply"
- end
-end 
 
- def items 
-  @items 
- end 
+  def total
+    @total 
+  end 
+
+  def items 
+    @items 
+  end 
  
   def prices
     @prices 
