@@ -20,7 +20,7 @@ class AmazonTransaction
       @total -= @discount 
       puts "After the discount, the total comes to $#{@total}"
     else 
-      puts "there is no discount to apply"
+      puts "There is no discount to apply"
     end
   end 
 
@@ -39,20 +39,21 @@ end
 
 puts "How much is the discount applied (in dollars)?"
 discount = gets.chomp.to_i
- new_register = AmazonTransaction.new(discount) 
+new_register = AmazonTransaction.new(discount) 
  
- loop do
+loop do
+  
   puts "Item:"
   item = gets.chomp.to_s
-  
-  price = 1 + rand(100)
-  
   puts "Quantity:"
   quantity = gets.chomp.to_i
+  price = 1 + rand(100)
   new_register.add_item(item, price, quantity)
+  
   
   puts "If you're done type done, else type no"
   answer = gets.chomp.downcase
+  
   if answer == "done"
     puts ""
     puts "Receipt"
