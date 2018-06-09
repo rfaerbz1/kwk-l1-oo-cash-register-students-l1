@@ -54,7 +54,7 @@ loop do
   puts "If you're done type done, else type no"
   answer = gets.chomp.downcase
   
-  if answer == "done"
+  if answer == "done" #if it equals something else repeat the loop again
     puts ""
     puts "Receipt"
     thing = 0
@@ -63,7 +63,7 @@ loop do
       thing += 1
     end
     puts "Total without discount: $#{new_register.total}"
-    new_register.apply_discounts
+    new_register.apply_discounts #prints out the total with the discount
     break
   end 
 end
